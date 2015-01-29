@@ -3,18 +3,23 @@
     <%- partial('post/gallery') %>
   <% } %>
   <div class="post-content">
-    <header>
+    <header>	  
       <% if (item.layout != 'page'){ %>
         <div class="icon"></div>
         <time datetime="<%= item.date.toDate().toISOString() %>"><a href="<%- config.root %><%- item.path %>"><%= item.date.format(config.date_format) %></a></time>
-      <% } %>
+      <% } %>	  
+	  
       <%- partial('post/title') %>
     </header>
     <div class="entry">
       <% if (item.excerpt && index){ %>
         <%- item.excerpt %>
       <% } else { %>
-        <%- item.content %>
+	    <% if (!index){ %>
+          <%- partial('toc') %>
+        <% } %>
+
+		<%- item.content %>
       <% } %>
     </div>
     <footer>
@@ -32,20 +37,9 @@
       <% } else { %>
         <%- partial('post/category') %>
         <%- partial('post/tag') %>
-		
-<!-- Baidu Button BEGIN -->
-<div class="bdsharebuttonbox">
-<a href="#" class="bds_more" data-cmd="more"></a>
-<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">
-</a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信">
-</a><a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网">
-</a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">
-</a><a href="#" class="bds_mail" data-cmd="mail" title="分享到邮件分享">
-</a><a href="#" class="bds_youdao" data-cmd="youdao" title="分享到有道云笔记">
-</a><a href="#" class="bds_bdysc" data-cmd="bdysc" title="分享到百度云收藏"></a>
-</div>
-<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{},"image":{"viewList":["tsina","weixin","douban","qzone","mail","youdao","bdysc"],"viewText":"分享到：","viewSize":"32"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","weixin","douban","qzone","mail","youdao","bdysc"]}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
-<!-- Baidu Button END -->      <% } %>
+		<%- partial('post/share') %>
+
+		<% } %>
 
       <div class="clearfix"></div>
     </footer>

@@ -10,3 +10,6 @@ archive_a: 归档
 archive_b: "归档：%s"
 page: "第 %d 页"
 recent_posts: 最新文章
+navigation: 文章目录
+quick_nav: 目录导航
+return_top: 返回顶部

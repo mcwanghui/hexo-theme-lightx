@@ -3,9 +3,15 @@ menu:
   Archives: /archives
   About: /about
   
-rss: /atom.xml
+social:
+# key weibo/twitter/google/github/stackoverflow/rss
+# value url
+# e.g github: https://github.com/mcwanghui
+  github: https://github.com/mcwanghui
+  weibo: http://weibo.com/mcwanghui
+  rss: /atom.xml
 
-favicon: /favicon.png
+favicon: /favicon.ico
 
 widgets:
 - search
@@ -22,5 +28,5 @@ excerpt_link: 阅读全文
 fancybox: true
 
 #google_analytics: UA-41207871-1
-#baidu__analytics: 
+baidu__tongji: true 
 
